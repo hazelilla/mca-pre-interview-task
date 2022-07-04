@@ -4,7 +4,7 @@ text_truncate = (str, length) =>  {
     } else {
       return str;
     }
-};
+}; //function to shorten text with three dots 
 
 print = (element) =>{
     console.log("..." + element.name)
@@ -16,8 +16,7 @@ print = (element) =>{
     } else{
         console.log("Weigth: " + element.weight + "g")
     }
-}
-
+}  // function to print details of the product 
 
 
 let domesticCost = 0;
@@ -30,7 +29,7 @@ fetch("https://interview-task-api.mca.dev/qr-scanner-codes/alpha-qr-gFpwhsQ8fkY1
         
             data.sort((a, b) => {
                 return (a.name || "").toString().localeCompare((b.name || "").toString())
-            })
+            }) // sorting data alphabeticly to print them in order
 
             console.log(". Domestic")
             data.forEach(element => {
@@ -40,7 +39,7 @@ fetch("https://interview-task-api.mca.dev/qr-scanner-codes/alpha-qr-gFpwhsQ8fkY1
                     domesticCost+=element.price;
                     print(element)
                 }
-            });
+            }); // calculating domestic cost and finding domestic count
 
             console.log(". Imported")
             data.forEach(element => {
@@ -50,7 +49,7 @@ fetch("https://interview-task-api.mca.dev/qr-scanner-codes/alpha-qr-gFpwhsQ8fkY1
                     importedCost+=element.price;
                     print(element)
                 }
-            })
+            }) // calculating domestic cost and finding domestic count
 
             console.log("Domestic cost: $" + parseFloat(domesticCost).toFixed(1))
             console.log("Imported cost: $" + parseFloat(importedCost).toFixed(1))
